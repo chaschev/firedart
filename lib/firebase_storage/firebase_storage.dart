@@ -9,6 +9,7 @@ import '../auth/firebase_auth.dart';
 
 class FirebaseStorage {
   final Bucket _bucket;
+  Bucket get bucket => _bucket;
 
   FirebaseStorage._internal(this._bucket);
 
@@ -69,8 +70,7 @@ class FirebaseStorage {
 
   Future delete(String remotePath) => _bucket.delete(remotePath);
 
-  Future updateMetadata(String remotePath, ObjectMetadata metadata) =>
-      _bucket.updateMetadata(remotePath, metadata);
+  Future updateMetadata(String remotePath, ObjectMetadata metadata) => _bucket.updateMetadata(remotePath, metadata);
 
   Stream<BucketEntry> list({String prefix}) => _bucket.list(prefix: prefix);
 
